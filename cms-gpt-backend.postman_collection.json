@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "b8657312-064a-4408-9ab9-9804b727157f",
+		"name": "cms-gpt-backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23658465"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create_page",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODVhYzcxN2ZmYzViZGViM2JhYmI1NzEiLCJpYXQiOjE3NTA3Nzk3ODIsImV4cCI6MTc1MDc4MjQ4Mn0.D2KSJiskE6gqgushCvczWKbW7cWBB6RWyvMQ6hyeu0I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"A Complete Guide to Exploring Paris\",\n  \"content\": \"Paris is home to the Eiffel Tower, the Louvre, and charming cafes. This guide covers must-visit attractions and tips for tourists.\",\n  \"category\": \"Travel\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/pages/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pages",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "seo_generate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODVhYzcxN2ZmYzViZGViM2JhYmI1NzEiLCJpYXQiOjE3NTA3Nzk3ODIsImV4cCI6MTc1MDc4MjQ4Mn0.D2KSJiskE6gqgushCvczWKbW7cWBB6RWyvMQ6hyeu0I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/pages/685ac8f7ffc5bdeb3babb574/seo/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pages",
+						"685ac8f7ffc5bdeb3babb574",
+						"seo",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bulk-update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODVhYzcxN2ZmYzViZGViM2JhYmI1NzEiLCJpYXQiOjE3NTA3Nzk3ODIsImV4cCI6MTc1MDc4MjQ4Mn0.D2KSJiskE6gqgushCvczWKbW7cWBB6RWyvMQ6hyeu0I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ids\": [\"685ac8f7ffc5bdeb3babb574\", \"685acd169bb86cd7abd44736\"],\n  \"prompt\": \"Improve SEO, rewrite title in a friendly tone, and generate metadata.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/pages/bulk-update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pages",
+						"bulk-update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
